@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics — NewsHub</title>
+    <link rel="stylesheet" href="./asscet/cs/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="loader-overlay" id="loader">
+    <div class="loader-spinner"></div>
+    <p>Loading statistics…</p>
+</div>
+
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <i class="fa-solid fa-newspaper"></i> NewsHub
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standings.html">Stanting</a></li>
+        <li><a href="matches.html" class="nav-live">Live</a></li>
+        <li><a href="stats.html" class="active">Stats</a></li>
+    </ul>
+    <button class="nav-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<ul class="mobile-nav" id="mobile-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="standings.html">Stanting</a></li>
+    <li><a href="matches.html" class="nav-live">Live</a></li>
+    <li><a href="stats.html" class="active">Stats</a></li>
+</ul>
+
+<div class="page-wrap">
+    <div class="page-title">
+        <h1><i class="fa-solid fa-chart-bar"></i> Player Statistics</h1>
+        <p>Top scorers, yellow cards &amp; red cards</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab active" data-tab="scorers">
+            <i class="fa-solid fa-futbol"></i> Top Scorers
+        </button>
+        <button class="tab" data-tab="yellow">
+            <i class="fa-solid fa-square" style="color:#f1c40f"></i> Yellow Cards
+        </button>
+        <button class="tab" data-tab="red">
+            <i class="fa-solid fa-square" style="color:#e94560"></i> Red Cards
+        </button>
+    </div>
+
+    <!-- BONUS: Sorting -->
+    <div class="sort-bar">
+        <span><i class="fa-solid fa-sort"></i> Sort:</span>
+        <button class="sort-btn active" data-sort="default">Default</button>
+        <button class="sort-btn" data-sort="goals">Goals ↓</button>
+        <button class="sort-btn" data-sort="yellow">Yellow ↓</button>
+        <button class="sort-btn" data-sort="red">Red ↓</button>
+    </div>
+
+    <!-- Panels -->
+    <div class="tab-panel active" id="panel-scorers">
+        <div class="players-grid" id="grid-scorers"></div>
+    </div>
+    <div class="tab-panel" id="panel-yellow">
+        <div class="players-grid" id="grid-yellow"></div>
+    </div>
+    <div class="tab-panel" id="panel-red">
+        <div class="players-grid" id="grid-red"></div>
+    </div>
+</div>
+
+<button id="back-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<footer><p class="footer-copy">&copy; 2025 NewsHub</p></footer>
+
+<script src="./asscet/js/config.js"></script>
+<script src="./asscet/js/stats.js"></script>
+</body>
+</html>

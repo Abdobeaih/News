@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — NewsHub</title>
+    <link rel="stylesheet" href="./asscet/cs/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader-overlay" id="loader">
+    <div class="loader-spinner"></div>
+    <p>Loading live data…</p>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <i class="fa-solid fa-newspaper"></i> NewsHub
+    </a>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html  " class="active">Home</a></li>
+        <li><a href="./standings.html">Stanting</a></li>
+        <li><a href="./matches.html " class="nav-live">Live</a></li>
+        <li><a href="./stats.html ">Stats</a></li>
+    </ul>
+    <button class="nav-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<ul class="mobile-nav" id="mobile-menu">
+    <li><a href="./index.html" class="active">Home</a></li>
+    <li><a href="./standings.html">Stanting</a></li>
+    <li><a href="./matches.html" class="nav-live">Live</a></li>
+    <li><a href="./stats.html">Stats</a></li>
+</ul>
+
+<!-- Ticker -->
+<div class="ticker">
+    <span class="ticker-tag"><i class="fa-solid fa-bolt"></i> BREAKING</span>
+    <div class="ticker-track">
+        <span class="ticker-text" id="ticker-text">Loading headlines…</span>
+    </div>
+</div>
+
+<!-- ==================== MAIN LAYOUT ==================== -->
+<div class="home-layout">
+
+    <main>
+        <!-- POLITICS -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2><i class="fa-solid fa-landmark"></i> Politics</h2>
+            </div>
+            <div class="news-row" id="news-politics"></div>
+        </section>
+
+        <!-- ECONOMY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2><i class="fa-solid fa-chart-line"></i> Economy</h2>
+            </div>
+            <div class="news-row" id="news-economy"></div>
+        </section>
+
+        <!-- ENTERTAINMENT -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2><i class="fa-solid fa-film"></i> Entertainment</h2>
+            </div>
+            <div class="news-row" id="news-entertainment"></div>
+        </section>
+
+        <!-- SPORTS -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2><i class="fa-solid fa-futbol"></i> Sports</h2>
+            </div>
+            <div class="news-row" id="news-sports"></div>
+        </section>
+    </main>
+
+    <aside>
+        <!-- WEATHER WIDGET -->
+        <div class="widget" id="widget-weather">
+            <h3 class="widget-title">
+                <i class="fa-solid fa-cloud-sun"></i> Weather
+            </h3>
+            <div class="weather-body">
+                <div class="weather-icon" id="w-icon">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                </div>
+                <div class="weather-temp" id="w-temp">--°C</div>
+            </div>
+            <p class="weather-desc" id="w-desc">Loading…</p>
+            <p class="weather-city" id="w-city">Detecting location…</p>
+            <div class="weather-extra">
+                <div class="wx-item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <span id="w-humidity">--%</span>
+                    <small>Humidity</small>
+                </div>
+                <div class="wx-item">
+                    <i class="fa-solid fa-wind"></i>
+                    <span id="w-wind">--</span>
+                    <small>Wind</small>
+                </div>
+                <div class="wx-item">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <span id="w-feels">--°</span>
+                    <small>Feels</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXCHANGE RATES WIDGET -->
+        <div class="widget" id="widget-currency">
+            <h3 class="widget-title">
+                <i class="fa-solid fa-money-bill-transfer"></i> Exchange Rates
+            </h3>
+            <div class="rates-list" id="rates-list">
+                <p class="muted">Loading rates…</p>
+            </div>
+            <!-- BONUS: Currency Converter -->
+            <div class="converter-box">
+                <h4><i class="fa-solid fa-calculator"></i> Converter</h4>
+                <div class="conv-field">
+                    <input type="number" id="conv-amount" value="1" min="0"
+                           placeholder="Amount">
+                    <select id="conv-from">
+                        <option value="USD">USD 🇺🇸</option>
+                        <option value="SAR">SAR 🇸🇦</option>
+                        <option value="EGP">EGP 🇪🇬</option>
+                        <option value="EUR">EUR 🇪🇺</option>
+                        <option value="GBP">GBP 🇬🇧</option>
+                    </select>
+                </div>
+                <button class="btn-swap" id="conv-swap" title="Swap">
+                    <i class="fa-solid fa-arrows-up-down"></i>
+                </button>
+                <div class="conv-field">
+                    <select id="conv-to">
+                        <option value="EGP">EGP 🇪🇬</option>
+                        <option value="USD">USD 🇺🇸</option>
+                        <option value="SAR">SAR 🇸🇦</option>
+                        <option value="EUR">EUR 🇪🇺</option>
+                        <option value="GBP">GBP 🇬🇧</option>
+                    </select>
+                </div>
+                <div class="conv-result" id="conv-result">Enter amount</div>
+            </div>
+        </div>
+
+        <!-- LIVE MATCHES WIDGET -->
+        <div class="widget" id="widget-live">
+            <h3 class="widget-title">
+                <span class="blink-dot"></span> Live Matches
+            </h3>
+            <div class="live-list" id="live-list"></div>
+        </div>
+    </aside>
+
+</div>
+
+<!-- Back to Top -->
+<button id="back-top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>Navigate</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="standings.html">Stanting</a></li>
+                <li><a href="matches.html">Live</a></li>
+                <li><a href="stats.html">Stats</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Follow Us</h4>
+            <div class="social-row">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Powered By</h4>
+            <p>OpenWeatherMap</p>
+            <p>GNews</p>
+            <p>AllSportsAPI</p>
+            <p>ExchangeRate API</p>
+        </div>
+    </div>
+    <p class="footer-copy">&copy; 2025 NewsHub. All rights reserved.</p>
+</footer>
+
+<script src="./asscet/js/config.js"></script>
+<script src="./asscet/js/home.js"></script>
+<SCript src="./asscet/js/matches.js"></SCript>
+<SCript src="./asscet/js/standings.js"></SCript>
+<SCript src="./asscet/js/stats.js"></SCript>
+</body>
+</html>

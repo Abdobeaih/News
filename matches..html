@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches — NewsHub</title>
+    <link rel="stylesheet" href="./asscet/cs/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="loader-overlay" id="loader">
+    <div class="loader-spinner"></div>
+    <p>Loading matches…</p>
+</div>
+
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <i class="fa-solid fa-newspaper"></i> NewsHub
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standings.html">Stanting</a></li>
+        <li><a href="matches.html" class="nav-live active">Live</a></li>
+        <li><a href="stats.html">Stats</a></li>
+    </ul>
+    <button class="nav-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<ul class="mobile-nav" id="mobile-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="standings.html">Stanting</a></li>
+    <li><a href="matches.html" class="nav-live active">Live</a></li>
+    <li><a href="stats.html">Stats</a></li>
+</ul>
+
+<div class="page-wrap">
+    <div class="page-title">
+        <h1><i class="fa-solid fa-futbol"></i> League Matches</h1>
+        <p>Full season — finished, live &amp; upcoming</p>
+    </div>
+
+    <!-- BONUS: Filters -->
+    <div class="filter-bar">
+        <div class="filter-item">
+            <label><i class="fa-solid fa-shield-halved"></i> Team</label>
+            <input type="text" id="f-team" placeholder="Search team…">
+        </div>
+        <div class="filter-item">
+            <label><i class="fa-regular fa-calendar"></i> Date</label>
+            <input type="date" id="f-date">
+        </div>
+        <div class="filter-item">
+            <label><i class="fa-solid fa-filter"></i> Status</label>
+            <select id="f-status">
+                <option value="all">All</option>
+                <option value="finished">Finished</option>
+                <option value="live">Live</option>
+                <option value="upcoming">Upcoming</option>
+            </select>
+        </div>
+        <button class="btn-clear" id="f-clear">
+            <i class="fa-solid fa-xmark"></i> Clear
+        </button>
+    </div>
+
+    <p class="match-count" id="match-count"></p>
+    <div class="matches-list" id="matches-list"></div>
+</div>
+
+<button id="back-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<footer>
+    <p class="footer-copy">&copy; 2025 NewsHub</p>
+</footer>
+
+<script src="./asscet/js/config.js"></script>
+<script src="./asscet/js/matches.js"></script>  
+</body>
+</html>
